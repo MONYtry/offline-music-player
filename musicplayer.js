@@ -12,35 +12,33 @@ const songCover = document.getElementById("songCover");
 var musicIsPlaying = false;
 
 
-function resetText()
-{
+function resetText() {
     maxTimeText.textContent = "00:00";
     currentTimeText.textContent = "00:00";
 }
 resetText();
 
 const songs = [
-        {
-            name: "Yeet",
-            artist: "Travis goty",
-            file: "song.mp3",
-            cover: "test.png"
-        },
-        {
-            name: "Yeet",
-            artist: "Travis goty",
-            file: "song.mp3",
-            cover: "test.png"
-        }
-    ];
+    {
+        name: "<No Name yet!>",
+        artist: "Travis goty",
+        file: "song.mp3",
+        cover: "test.png"
+    },
+    {
+        name: "<No Name yet!>",
+        artist: "Travis goty",
+        file: "song.mp3",
+        cover: "test.png"
+    }
+];
 
 
 
-function loadMusic()
-{
+function loadMusic() {
     const musicList = document.getElementById("musicList");
 
-    songs.forEach((song,index) => {
+    songs.forEach((song, index) => {
         let card = document.createElement("div");
         card.className = "musicCard";
 
@@ -51,19 +49,19 @@ function loadMusic()
         <button onclick="changeMusic('${index}')" class="musicListButton">▶</button>
         `;
 
-    musicList.appendChild(card);
+        musicList.appendChild(card);
     });
 }
 loadMusic();
 music.volume = 0.4;
-volumenSlider.value = music.volume; 
+volumenSlider.value = music.volume;
 
-    
-    // Max Audio length
-    music.addEventListener("loadedmetadata", () => {
-        progress.max = music.duration;
-    });
-    
+
+// Max Audio length
+music.addEventListener("loadedmetadata", () => {
+    progress.max = music.duration;
+});
+
 
 ///// SLIDERS /////
 
@@ -87,62 +85,48 @@ volumenSlider.addEventListener("input", function () {
 });
 
 
-function updateSlider()
-{
+function updateSlider() {
     if (!progress.max) return;
 
     const percent = (progress.value / progress.max) * 100;
 
-    progress.style.background =
-    `linear-gradient(to right,
-    #1DB954 0%,
-    #1DB954 ${percent}%,
-    #5C5C5C ${percent}%,
-    #5C5C5C 100%)`;
+    progress.style.background = `linear-gradient(to right,#1DB954 0%,#1DB954 ${percent}%,#5C5C5C ${percent}%,#5C5C5C 100%)`;
 }
-function updateVolumeSlider()
-{
+
+function updateVolumeSlider() {
     const percent = volumenSlider.value * 100;
 
-    volumenSlider.style.background =
-    `linear-gradient(to right,
-    #1DB954 0%,
-    #1DB954 ${percent}%,
-    #5C5C5C ${percent}%,
-    #5C5C5C 100%)`;
+    volumenSlider.style.background = `linear-gradient(to right,#1DB954 0%,#1DB954 ${percent}%,#5C5C5C ${percent}%,#5C5C5C 100%)`;
 }
-     updateVolumeSlider();
+updateVolumeSlider();
 
 ///// UPDATE TIME DISPLAY /////
 
-setInterval(function(){
+setInterval(function () {
     currentTimeText.innerHTML = formatTime(music.currentTime) + "";
-    
+
     if (music.src != window.location.href)
-    maxTimeText.innerHTML = formatTime(music.duration) + "";
+        maxTimeText.innerHTML = formatTime(music.duration) + "";
     // Every 1 sec
-},1000)
+}, 1000)
 
 
 // BUTTONS //
-function toggleMusic()
-{
+function toggleMusic() {
     // Display Tooltip
     if (music.src === window.location.href) {
         tooltip.style.opacity = "100%";
         setTimeout(() => {
-        tooltip.style.opacity = "0%";
+            tooltip.style.opacity = "0%";
         }, 2000);
-    return;
+        return;
     }
 
-    if (music.paused)
-    {
+    if (music.paused) {
         music.play();
         buttonDisplay.textContent = "⏸";
     }
-    else
-    {
+    else {
         music.pause();
         buttonDisplay.textContent = "▶";
     }
@@ -154,22 +138,18 @@ function playMusic() {
 
 }
 
-function pauseMusic()
-{
+function pauseMusic() {
     music.pause();
     musicIsPlaying = false;
 }
 
 // Function to Format the Time //
-function formatTime(seconds) 
-{
+function formatTime(seconds) {
     // Jede 60 Sekunden in 1 Minute setzen
     let minutes = Math.floor(seconds / 60);
-    
-    // Kein Plan
+
     let secs = Math.floor(seconds % 60);
-    
-    // uhm ka
+
     if (secs < 10) {
         secs = "0" + secs;
     }
@@ -179,20 +159,18 @@ function formatTime(seconds)
 
 
 ///// CHANGE MUSIC /////
-function changeMusic(index)
-{
+function changeMusic(index) {
     const song = songs[index];
 
     music.src = song.file;
     displaySongInfomation(song);
-    
+
     music.load();
     toggleMusic();
     progress.value = 0;
 }
 
-function displaySongInfomation(song)
-{
+function displaySongInfomation(song) {
     songCover.src = song.cover;
     footerSong.textContent = song.name;
     footerArtist.textContent = song.artist;
