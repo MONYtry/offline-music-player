@@ -1,0 +1,198 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #121212, #242424);
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin: 50px;
+    font-size: 42px;
+}
+
+footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:100px;
+    background:#181818;
+    border-top:1px solid #2a2a2a;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 25px;
+}
+.footerInfo{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.songInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.songInfo{
+    margin: 0;
+}
+
+#footerArtist{
+    color: rgb(158, 158, 158);
+    font-size: 14px;
+}
+.footerImage{
+    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+}
+
+footer p {
+    margin: 3px 0;
+}
+
+.playbar{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:650px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+button {
+    padding: 15px 20px;
+    border: 0;
+    border-radius: 50%;
+    background: #1db954;
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.musicListButton {
+    background: #181818;
+    color: white;
+    border-radius: 8px;
+}
+
+.musicListButton:hover {
+    transform: scale(1.08);
+    background: #1ed760;
+}
+
+.progress-container{
+    width:100%;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+#progress,
+#volume{
+    appearance: none;
+    width: 110px;
+    height: 5px;
+    background: #817979;
+    border-radius: 999px;
+    cursor: pointer;
+}
+#volume::-webkit-slider-thumb{
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #028f2c;
+    cursor: pointer;
+}   
+
+
+#progress {
+    width: 80%;
+    height: 6px;
+}
+#progress{
+    flex:1;
+    height: 5px;
+}
+#volume {
+    width: 110px;
+    height: 10px;
+}
+
+#progress::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #1db954;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#currentTimeText,
+#maxTimeText {
+    width: 45px;
+    text-align: center;
+    color: #b3b3b3;
+    font-size: 13px;
+}
+#volume{
+    width: 110px;
+}
+
+.musicList{
+    display: flex;
+    flex-direction: column;
+}
+
+.musicCard{
+    margin: 8px 20px;
+    padding: 15px;
+    background: #181818;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    transition: .2s;
+}
+
+.musicCard:hover {
+    background: #282828;
+}
+
+.musicListTitle {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 70px;
+    color: #b3b3b3;
+    font-size: 14px;
+}
+
+.tooltip {
+    opacity: 0;
+    position: fixed;
+    bottom: 140px;
+    left: 46%;
+    background: #181818;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px #0008;
+}

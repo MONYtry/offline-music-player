@@ -1,0 +1,13 @@
+########################
+# Offline Music Player #
+#    Made by MONY      #
+########################
+
+How to Use
+
+1. Place all music files in the same folder as the project.
+2. Open the project files.
+3. Locate the "songs" array.
+4. Edit the "songs" array to match your music files (file names and order).
+
+Make sure all file names in the array exactly match the files in the folder.

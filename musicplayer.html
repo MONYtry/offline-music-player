@@ -1,0 +1,70 @@
+<html>
+<head>
+    <title>Music Player</title>
+    <link rel="stylesheet" href="musicplayer.css">
+
+</head>
+
+<body>
+    <audio id="music" src=""></audio>
+
+    <h1>Music Player</h1>
+    <div class="musicList" id="musicList">
+    <div class="musicListTitle">
+        <p>Titel</p>
+        <p>Artist</p>
+        <p>Status</p>
+    </div>
+    </div>
+    
+    <div id="tooltip" class="tooltip">
+        <p>No Song selected!</p>
+    </div>
+
+    
+<footer>
+
+    <!-- Linke Seite -->
+    <div class="footerInfo">
+        <img src="test.png" class="footerImage" id="songCover">
+
+        <div class="songInfo">
+            <p id="footerSong"></p>
+            <p id="footerArtist"></p>
+        </div>
+    </div>
+
+    <!-- Mitte -->
+    <div class="playbar">
+
+        <div class="buttons">
+            <button onclick="toggleMusic()" id="buttonDisplay">▶</button>
+        </div>
+
+        <div class="progress-container">
+            <p id="currentTimeText">0:00</p>
+
+            <input type="range" id="progress" min="0" value="0">
+
+            <p id="maxTimeText">0:00</p>
+        </div>
+
+    </div>
+
+    <!-- Rechte Seite -->
+    <div class="volumeContainer">
+        <input
+            type="range"
+            id="volume"
+            min="0"
+            max="1"
+            step="0.01"
+            value="1">
+    </div>
+
+</footer>
+
+    <script src="musicplayer.js"></script>
+</body>
+
+</html>
