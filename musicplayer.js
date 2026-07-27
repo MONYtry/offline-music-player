@@ -20,13 +20,13 @@ resetText();
 
 const songs = [
     {
-        name: "<No Name yet!>",
+        name: "No Name yet!",
         artist: "Travis goty",
         file: "song.mp3",
         cover: "test.png"
     },
     {
-        name: "<No Name yet!>",
+        name: "No Name yet!",
         artist: "Travis goty",
         file: "song.mp3",
         cover: "test.png"
@@ -44,7 +44,10 @@ function loadMusic() {
 
         // Erstellt Paragraph und Button
         card.innerHTML = `
-        <p>${song.name}</p>
+        <div class="songListDisplay">
+            <img src="${song.cover}" width="50" height="50">
+            <p>${song.name}</p>
+        </div>
         <p>${song.artist}</p>
         <button onclick="changeMusic('${index}')" class="musicListButton">▶</button>
         `;
